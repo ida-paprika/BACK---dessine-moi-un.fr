@@ -40,20 +40,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		// ARTIST authorizations
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/projects/artist")
+		.hasRole("ARTIST").and().authorizeRequests()
+		.antMatchers(HttpMethod.PATCH, "/projects/accept")
 		.hasRole("ARTIST")
-//		// ORDERER authorizations
+		// ORDERER authorizations
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.GET, "/projects/orderer",
 			"/profiles/name")
 		.hasRole("ORDERER").and().authorizeRequests()
 		.antMatchers(HttpMethod.POST, "/projects").hasRole("ORDERER")
-		.and().authorizeRequests()
-		.antMatchers(HttpMethod.DELETE, "/projects/{id}")
-		.hasRole("ORDERER")
 		// ORDERER or ARTIST authorizations
 		.and().authorizeRequests()
 		.antMatchers(HttpMethod.PATCH, "/auth/reset-password",
 			"/profiles/update-names")
+		.hasAnyRole("ORDERER", "ARTIST").and().authorizeRequests()
+		.antMatchers(HttpMethod.DELETE, "/projects/{id}")
 		.hasAnyRole("ORDERER", "ARTIST")
 		//
 		.and().authorizeRequests().anyRequest().authenticated().and()

@@ -14,28 +14,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class RestTemplateErrorHandler implements ResponseErrorHandler {
 
-    private final ObjectMapper mapper; // Jackson JSON (de)serializer
+    private final ObjectMapper mapper;
 
     public RestTemplateErrorHandler(ObjectMapper mapper) {
 	Objects.requireNonNull(mapper, "mapper cannot be null");
 	this.mapper = mapper;
     }
 
-    // Check if external API error is 400 + or 500 +
     @Override
     public boolean hasError(ClientHttpResponse response) throws IOException {
 	Series series = response.getStatusCode().series();
-	return series.equals(Series.CLIENT_ERROR) // 400 +
-		|| series.equals(Series.SERVER_ERROR); // 500 +
+	return series.equals(Series.CLIENT_ERROR)
+		|| series.equals(Series.SERVER_ERROR);
     }
 
-    // Throws RestTemplateException to be handled by ControllerAdvice
     @SuppressWarnings("unchecked")
     @Override
     public void handleError(ClientHttpResponse response) throws IOException {
 	InputStream bodyAsStream = response.getBody();
 	Map<String, Object> body = null;
-	if (!(bodyAsStream instanceof EmptyInputStream)) { // Only if body
+	if (!(bodyAsStream instanceof EmptyInputStream)) {
 	    body = mapper.readValue(bodyAsStream, Map.class);
 	}
 	throw new RestTemplateException(response.getStatusCode(), body);

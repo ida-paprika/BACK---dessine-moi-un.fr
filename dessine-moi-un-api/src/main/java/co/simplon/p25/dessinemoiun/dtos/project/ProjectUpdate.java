@@ -31,4 +31,9 @@ public class ProjectUpdate {
 	this.price = price;
     }
 
+    @Override
+    public String toString() {
+	return String.format("ProjectUpdate [id=%s, price=%s]", id, price);
+    }
+
 }

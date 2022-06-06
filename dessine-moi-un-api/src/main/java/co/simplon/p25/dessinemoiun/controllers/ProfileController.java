@@ -34,6 +34,4 @@ public class ProfileController {
 	return service.updateProfileNames(userInputs);
     }
 
-    // endpoint to get actual user's infos
-
 }

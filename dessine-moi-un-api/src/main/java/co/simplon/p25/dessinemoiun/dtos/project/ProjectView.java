@@ -20,7 +20,7 @@ public class ProjectView {
 
     private String userName;
 
-    private Long progressStatus;
+    private String progressStatus;
 
     public ProjectView() {
 	//
@@ -28,7 +28,7 @@ public class ProjectView {
 
     public ProjectView(Long id, LocalDate createdAt, String description,
 	    double price, LocalDate deadline, String artMediumLabel,
-	    String artFormatLabel, String userName, Long progressStatus) {
+	    String artFormatLabel, String userName, String progressStatus) {
 	this.id = id;
 	this.createdAt = createdAt;
 	this.description = description;
@@ -104,11 +104,11 @@ public class ProjectView {
 	this.userName = userName;
     }
 
-    public Long getProgressStatus() {
+    public String getProgressStatus() {
 	return progressStatus;
     }
 
-    public void setProgressStatus(Long progressStatus) {
+    public void setProgressStatus(String progressStatus) {
 	this.progressStatus = progressStatus;
     }
 

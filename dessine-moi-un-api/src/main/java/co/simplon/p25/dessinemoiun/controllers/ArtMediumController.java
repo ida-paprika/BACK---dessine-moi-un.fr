@@ -24,6 +24,4 @@ public class ArtMediumController {
 	return service.getAllMediums();
     }
 
-    // TODO endpoint to get one artist mediums
-
 }

@@ -16,7 +16,7 @@ public class ProfileUuid {
 
     @Override
     public String toString() {
-	return String.format("ProfileUuid [uuid=%s]", uuid);
+	return String.format("ProfileUuid [uuid=%s]", "[PROTECTED]");
     }
 
 }

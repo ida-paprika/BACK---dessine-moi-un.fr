@@ -48,6 +48,6 @@ public class ResetPassword {
     public String toString() {
 	return String.format(
 		"ResetPassword [userUuid=%s, oldPassword=%s, newPassword=%s]",
-		userUuid, "[PROTECTED]", "[PROTECTED]");
+		"[PROTECTED]", "[PROTECTED]", "[PROTECTED]");
     }
 }

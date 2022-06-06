@@ -23,4 +23,9 @@ public class ProgressStatus extends AbstractEntity {
 	this.status = status;
     }
 
+    @Override
+    public String toString() {
+	return String.format("ProgressStatus [status=%s]", status);
+    }
+
 }

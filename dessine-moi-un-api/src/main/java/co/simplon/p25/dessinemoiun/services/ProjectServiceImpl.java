@@ -108,7 +108,7 @@ public class ProjectServiceImpl implements ProjectService {
 		    p.getPrice(), p.getDeadline(), p.getArtMedium().getLabel(),
 		    p.getArtFormat().getLabel(),
 		    this.getProfileName(p.getProfile()),
-		    p.getProgressStatus().getId());
+		    p.getProgressStatus().getStatus());
 	    projectList.add(item);
 	}
 	return projectList;
@@ -125,7 +125,7 @@ public class ProjectServiceImpl implements ProjectService {
 		    p.getCreatedAt().toLocalDate(), p.getDescription(),
 		    p.getPrice(), p.getDeadline(), p.getArtMedium().getLabel(),
 		    p.getArtFormat().getLabel(), p.getArtist().getArtistName(),
-		    p.getProgressStatus().getId());
+		    p.getProgressStatus().getStatus());
 	    projectList.add(item);
 	}
 	return projectList;
@@ -134,8 +134,6 @@ public class ProjectServiceImpl implements ProjectService {
     @Transactional
     @Override
     public void deleteProject(Long projectId) {
-	String profileUuid = SecurityHelper.authenticatedProfileUuid();
-	System.out.println(profileUuid);
 	projectRepo.deleteById(projectId);
     }
 
@@ -153,14 +151,7 @@ public class ProjectServiceImpl implements ProjectService {
 		entity.getLastName().charAt(0));
     }
 
-    private Profile getActualUserProfile() {
-	UUID uuid = UUID.fromString(SecurityHelper.authenticatedProfileUuid());
-	Profile profile = profileRepo.findOneByUuid(uuid);
-	return profile;
-    }
-
     private void sendEmail(String userEmail) {
-	// TODO externaliser email dans properties
 	String apiEmail = "dessine-moi-un@readresolve.io";
 	String content = "<h3>Vous avez reçu une nouvelle demande de projet !</h3>"
 		+ "Connectez-vous sur votre profil pour y répondre"
@@ -176,4 +167,9 @@ public class ProjectServiceImpl implements ProjectService {
 	herald.postForLocation("/mails", mail);
     }
 
+    private Profile getActualUserProfile() {
+	UUID uuid = UUID.fromString(SecurityHelper.authenticatedProfileUuid());
+	Profile profile = profileRepo.findOneByUuid(uuid);
+	return profile;
+    }
 }

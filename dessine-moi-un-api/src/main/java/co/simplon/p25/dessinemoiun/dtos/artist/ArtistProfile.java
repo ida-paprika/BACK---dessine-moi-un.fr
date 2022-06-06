@@ -78,4 +78,11 @@ public class ArtistProfile {
 	this.artwork = artwork;
     }
 
+    @Override
+    public String toString() {
+	return String.format(
+		"ArtistProfile [id=%s, artistName=%s, instagramUrl=%s, artMedium=%s, artFormat=%s, artwork=%s]",
+		id, artistName, instagramUrl, artMedium, artFormat, artwork);
+    }
+
 }

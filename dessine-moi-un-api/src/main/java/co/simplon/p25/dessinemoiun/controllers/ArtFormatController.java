@@ -24,6 +24,4 @@ public class ArtFormatController {
 	return service.getAllFormats();
     }
 
-    // TODO endpoint to get one artist formats
-
 }

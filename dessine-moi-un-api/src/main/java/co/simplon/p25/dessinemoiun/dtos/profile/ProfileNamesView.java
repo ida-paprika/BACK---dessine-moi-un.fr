@@ -30,4 +30,10 @@ public class ProfileNamesView {
 	this.lastName = lastName;
     }
 
+    @Override
+    public String toString() {
+	return String.format("ProfileNamesView [firstName=%s, lastName=%s]",
+		firstName, lastName);
+    }
+
 }

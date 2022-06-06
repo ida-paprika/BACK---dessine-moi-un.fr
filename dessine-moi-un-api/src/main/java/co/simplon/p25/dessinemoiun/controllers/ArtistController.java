@@ -22,13 +22,11 @@ public class ArtistController {
 	this.service = service;
     }
 
-    // endpoint to get all actual artist's infos
     @GetMapping("/profile")
     public ArtistProfile getArtistProfile() {
 	return service.getArtistProfile();
     }
 
-    // endpoint to get ArtistCard
     @GetMapping("/cards")
     public List<ArtistCard> getArtistCardByTools(
 	    @RequestParam(name = "mediumId") Long mediumId,
@@ -36,7 +34,6 @@ public class ArtistController {
 	return service.getArtistCardByTools(mediumId, formatId);
     }
 
-    // endpoint to get the 3 "artists of the month"
     public List<ArtistTop3> getArtistsOfTheMonth() {
 	return null;
     }
