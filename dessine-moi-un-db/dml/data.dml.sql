@@ -48,21 +48,21 @@ INSERT INTO profiles (uuid, email)
 	('f41d4ee5-c1ec-4f0d-93ed-c7b58f2d3074', 'dulk@mail.com'),
 	('25e0dc24-95e3-466f-a93d-2cee1c4a0169', 'joe.fenton@mail.com');
 
-INSERT INTO artists (id, artist_name, instagram_url, available, profile_id)
+INSERT INTO artists (artist_name, instagram_url, available, profile_id)
 	VALUES 
 	('Marbleck', null, false, (SELECT id FROM profiles WHERE email = 'artist1@mail.com')),
 	('James Jean', 'https://www.instagram.com/jamesjeanart/', true, (SELECT id FROM profiles WHERE email = 'james.jean@mail.com')),
 	('Dulk', 'https://www.instagram.com/dulk1/', true, (SELECT id FROM profiles WHERE email = 'dulk@mail.com')),
 	('Joe Fenton', 'https://www.instagram.com/jfentonart/', true, (SELECT id FROM profiles WHERE email = 'joe.fenton@mail.com'));
 
-INSERT INTO artworks (id, file_name, cover, artist_id)
+INSERT INTO artworks (file_name, cover, artist_id)
 	VALUES 
-	(1, 'marbleck_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	(2, 'marbleck_1.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	(3, 'marbleck_2.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	(4, 'james_jean_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'James Jean')),
-	(5, 'dulk_0.png', true, (SELECT id FROM profiles WHERE artist_name = 'Dulk')),
-	(6, 'joe_fenton_0.jpeg', true, (SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'));
+	('marbleck_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
+	('marbleck_1.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
+	('marbleck_2.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
+	('james_jean_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'James Jean')),
+	('dulk_0.png', true, (SELECT id FROM profiles WHERE artist_name = 'Dulk')),
+	('joe_fenton_0.jpeg', true, (SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'));
 
 INSERT INTO artists_art_mediums (artist_id, art_medium_id)
 	VALUES 
