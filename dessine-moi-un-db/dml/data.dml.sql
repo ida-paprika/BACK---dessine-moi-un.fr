@@ -60,7 +60,7 @@ INSERT INTO artworks (file_name, cover, artist_id)
 	('marbleck_0.jpg', true, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
 	('marbleck_1.jpg', false, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
 	('marbleck_2.jpg', false, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
-	('james_jean_0.jpg', true, (SELECT id FROMartistss WHERE artist_name = 'James Jean')),
+	('james_jean_0.jpg', true, (SELECT id FROM artists WHERE artist_name = 'James Jean')),
 	('dulk_0.png', true, (SELECT id FROM artists WHERE artist_name = 'Dulk')),
 	('joe_fenton_0.jpeg', true, (SELECT id FROM artists WHERE artist_name = 'Joe Fenton'));
 
