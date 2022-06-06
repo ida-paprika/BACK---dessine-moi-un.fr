@@ -1,0 +1,17 @@
+{"properties": [
+  {
+    "name": "dessinemoiun.security.jwt.secret",
+    "type": "java.lang.String",
+    "description": "A description for 'dessinemoiun.security.jwt.secret'"
+  },
+  {
+    "name": "gandalf.api.access.url",
+    "type": "java.lang.String",
+    "description": "A description for 'gandalf.api.access.url'"
+  },
+  {
+    "name": "gandalf.api.root-uri",
+    "type": "java.lang.String",
+    "description": "A description for 'gandalf.api.root-uri'"
+  }
+]}

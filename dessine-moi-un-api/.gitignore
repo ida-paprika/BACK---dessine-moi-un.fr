@@ -1,0 +1,9 @@
+/.metadata/
+/target/
+/bin/
+secrets*.properties
+application-dev.properties
+.settings
+*.project
+.classpath
+*.prefs
