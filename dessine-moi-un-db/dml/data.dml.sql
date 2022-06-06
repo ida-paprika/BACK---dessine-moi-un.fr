@@ -57,42 +57,42 @@ INSERT INTO artists (artist_name, instagram_url, available, profile_id)
 
 INSERT INTO artworks (file_name, cover, artist_id)
 	VALUES 
-	('marbleck_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	('marbleck_1.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	('marbleck_2.jpg', false, (SELECT id FROM profiles WHERE artist_name = 'Marbleck')),
-	('james_jean_0.jpg', true, (SELECT id FROM profiles WHERE artist_name = 'James Jean')),
-	('dulk_0.png', true, (SELECT id FROM profiles WHERE artist_name = 'Dulk')),
-	('joe_fenton_0.jpeg', true, (SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'));
+	('marbleck_0.jpg', true, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
+	('marbleck_1.jpg', false, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
+	('marbleck_2.jpg', false, (SELECT id FROM artists WHERE artist_name = 'Marbleck')),
+	('james_jean_0.jpg', true, (SELECT id FROMartistss WHERE artist_name = 'James Jean')),
+	('dulk_0.png', true, (SELECT id FROM artists WHERE artist_name = 'Dulk')),
+	('joe_fenton_0.jpeg', true, (SELECT id FROM artists WHERE artist_name = 'Joe Fenton'));
 
 INSERT INTO artists_art_mediums (artist_id, art_medium_id)
 	VALUES 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'gouache')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'gouache')),
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'gouache')),
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'gouache'));
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_mediums WHERE label = 'gouache')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_mediums WHERE label = 'gouache')),
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_mediums WHERE label = 'gouache')),
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'aquarelle')), 
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'acrylique')), 
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_mediums WHERE label = 'gouache'));
 
 INSERT INTO artists_art_formats (artist_id, art_format_id)
 	VALUES 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A5')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A4')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A3')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A5')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A4')), 
-	((SELECT id FROM profiles WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A3')),
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A5')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A4')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A3')),
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A5')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A4')), 
-	((SELECT id FROM profiles WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A3'));
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A5')), 
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A4')), 
+	((SELECT id FROM artists WHERE artist_name = 'Marbleck'), (SELECT id FROM art_formats WHERE label = 'A3')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A5')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A4')), 
+	((SELECT id FROM artists WHERE artist_name = 'James Jean'), (SELECT id FROM art_formats WHERE label = 'A3')),
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A5')), 
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A4')), 
+	((SELECT id FROM artists WHERE artist_name = 'Dulk'), (SELECT id FROM art_formats WHERE label = 'A3')),
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A5')), 
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A4')), 
+	((SELECT id FROM artists WHERE artist_name = 'Joe Fenton'), (SELECT id FROM art_formats WHERE label = 'A3'));
 
 
 
