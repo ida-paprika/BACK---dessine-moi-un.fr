@@ -7,7 +7,6 @@ echo '----------'
 
 echo 'Connect to postGres...'
 psql -h localhost -p 5432 -U postgres -d dessine_moi_un <<MULTILIGNE
-\i ddl/schema-reset.ddl.sql
 \i ddl/schema.ddl.sql
 \i dml/data.dml.sql
 \q
