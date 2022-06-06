@@ -17,11 +17,11 @@ public class RestTemplateConfig {
     @Value("${gandalf.api.root-uri}")
     private String gandalfUri;
 
-    @Value("${dessinemoiun.api-value.client-name.header}")
-    private String headerName;
+    @Value("${gandalf.api.client-name}")
+    private String gandalfName;
 
-    @Value("${dessinemoiun.api-value.credentials.header}")
-    private String headerApiKey;
+    @Value("${gandalf.api.client-key}")
+    private String gandalfApiKey;
 
     @Value("${herald.api.root-uri}")
     private String heraldRootUri;
@@ -41,8 +41,8 @@ public class RestTemplateConfig {
     @Bean
     public RestTemplate gandalfRestTemplate(RestTemplateBuilder builder) {
 	RestTemplate template = builder.rootUri(gandalfUri)
-		.defaultHeader("client-name", headerName)
-		.defaultHeader("client-api-key", headerApiKey)
+		.defaultHeader("client-name", gandalfName)
+		.defaultHeader("client-api-key", gandalfApiKey)
 		.errorHandler(errorHandler()).build();
 	template.setRequestFactory(requestFactory());
 	return template;

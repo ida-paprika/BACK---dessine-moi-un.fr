@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.client.RestTemplate;
@@ -31,6 +32,12 @@ import co.simplon.p25.dessinemoiun.security.SecurityHelper;
 
 @Service
 public class ProjectServiceImpl implements ProjectService {
+
+    @Value("${dessinemoiun.api.root-uri}")
+    private String apiUri;
+
+    @Value("${dessinemoiun.api.email}")
+    private String apiEmail;
 
     private final ProjectRepository projectRepo;
     private final ArtMediumRepository mediumRepo;
@@ -152,10 +159,10 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     private void sendEmail(String userEmail) {
-	String apiEmail = "dessine-moi-un@readresolve.io";
 	String content = "<h3>Vous avez reçu une nouvelle demande de projet !</h3>"
 		+ "Connectez-vous sur votre profil pour y répondre"
-		+ "<br><small>A très vite sur <a href=\"www.dessine-moi-un.fr\">dessine-moi-un.fr</a> :)</small>";
+		+ "<br><small>A très vite sur <a href=\"" + apiUri
+		+ "\">dessine-moi-un.fr</a> :)</small>";
 
 	Mail mail = new Mail();
 	mail.setFrom(apiEmail);

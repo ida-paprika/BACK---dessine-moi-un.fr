@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,9 @@ import co.simplon.p25.dessinemoiun.security.SecurityHelper;
 
 @Service
 public class AuthenticationServiceImpl implements AuthenticationService {
+
+    @Value("${dessinemoiun.api.root-uri}")
+    private String apiUri;
 
     private final ProfileRepository profileRepo;
 
@@ -88,8 +92,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
 	lostPwd.setUserUuid(profile.getUuid());
 	lostPwd.setMailHeader("<h3>Bonjour</h3>");
-	lostPwd.setMailFooter(
-		"<i>A bientôt sur <a href=\"www.dessine-moi-un.fr\">Dessine moi un</a></i>");
+	lostPwd.setMailFooter("<i>A bientôt sur <a href=\"" + apiUri
+		+ "\">Dessine moi un</a></i>");
 
 	gandalf.patchForObject("/users/lost-password", lostPwd, String.class);
 
